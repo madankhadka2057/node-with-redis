@@ -1,0 +1,53 @@
+{
+  "name": "node-pro-backend",
+  "version": "1.0.0",
+  "description": "Production-grade Node.js backend with Clean Architecture, Prisma, and BullMQ",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "node dist/server.js & node dist/workers/email.worker.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "worker": "ts-node src/workers/email.worker.ts",
+    "worker:prod": "node dist/workers/email.worker.js",
+    "build": "prisma generate && tsc",
+    "postinstall": "prisma generate",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev --name init",
+    "redis-ui": "redis-commander --port 8081"
+  },
+  "dependencies": {
+    "@bull-board/api": "^6.20.6",
+    "@bull-board/express": "^6.20.6",
+    "@bull-board/ui": "^6.20.6",
+    "@prisma/adapter-pg": "^7.5.0",
+    "@prisma/client": "^7.5.0",
+    "@types/compression": "^1.8.1",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.24",
+    "@types/nodemailer": "^7.0.11",
+    "@types/pg": "^8.20.0",
+    "argon2": "^0.44.0",
+    "bullmq": "^5.0.0",
+    "compression": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-rate-limit": "^8.3.1",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "ioredis": "^5.3.2",
+    "nodemailer": "^8.0.3",
+    "paseto": "^3.1.4",
+    "pg": "^8.20.0",
+    "prisma": "^7.5.0",
+    "rate-limit-redis": "^4.3.1",
+    "resend": "^6.9.4",
+    "typescript": "^5.3.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "redis-commander": "^0.9.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
