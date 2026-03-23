@@ -21,8 +21,6 @@ export const config = {
     },
   },
   paseto: {
-    privateKey: process.env.PASETO_PRIVATE_KEY || 'k4.secret.placeholder',
-    publicKey: process.env.PASETO_PUBLIC_KEY || 'k4.public.placeholder',
     accessTokenExpires: '1h',
     refreshTokenExpires: '7d',
   },
