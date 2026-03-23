@@ -11,7 +11,7 @@ export class Security {
 
   private static initializePrivateKey() {
     try {
-      const keyPath = path.join(process.cwd(), 'keys', 'private.pem');
+      const keyPath = path.join(process.cwd(), 'private.pem');
       if (!fs.existsSync(keyPath)) {
         console.warn(`[Security] Private key not found at ${keyPath}`);
         return null;
@@ -26,7 +26,7 @@ export class Security {
 
   private static initializePublicKey() {
     try {
-      const keyPath = path.join(process.cwd(), 'keys', 'public.pem');
+      const keyPath = path.join(process.cwd(), 'public.pem');
       if (!fs.existsSync(keyPath)) {
         console.warn(`[Security] Public key not found at ${keyPath}`);
         return null;
